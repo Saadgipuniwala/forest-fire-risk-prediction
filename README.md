@@ -1,6 +1,6 @@
 # FIRELINE — Forest Fire Risk Prediction for Uttarakhand
 
-Predicting forest fire risk in Uttarakhand's highest-risk districts, days before ignition —
+Predicting forest fire risk in Uttarakhand's highest-risk districts —
 not just detecting fires after they've already started.
 
 ## The Problem
@@ -32,9 +32,12 @@ and terrain data to predict fire risk for four of Uttarakhand's highest fire-ris
 3. Labeled every district-day as fire / no-fire (not just fire points — a real binary classification dataset)
 4. Trained and compared two models: **Random Forest** (chosen) and XGBoost
 5. Evaluated using confusion matrix, precision/recall, ROC and PR curves
-6. **Validated against the 2024 Uttarakhand fire season (April–June) across all four districts — the model maintained consistently high risk scores throughout the active season and correctly tracked the drop to low risk as conditions cooled in late June, distinguishing active-danger months from the calmer period that followed**
+6. Validated against the 2024 Uttarakhand fire season (April–June) across all four districts —
+   the model maintained consistently high risk scores throughout the active season and correctly
+   tracked the drop to low risk as conditions cooled in late June, distinguishing active-danger
+   months from the calmer period that followed
 7. Built a live dashboard (Flask + JavaScript) showing risk by district for any date in the test period
-The original "3–5 day early warning before a single fire" framing doesn't fully apply — the 2024 fire season involved sustained fire activity over months rather than one isolated ignition, so validation measures the model's ability to track season-long risk and its decline, not lead time before a specific event 
+
 ## Results
 
 - **93% recall** on real fires in the 2024 test season (caught 247 of 267 real fire events)
@@ -44,17 +47,25 @@ The original "3–5 day early warning before a single fire" framing doesn't full
 
 ## Honest Limitations
 
-- Validated against one real historical event and one held-out season, not multiple independent
-  fire seasons — a promising proof of concept, not an operationally proven system
+- Validated against one real fire season (2024, April–June), not multiple independent
+  fire years — a promising proof of concept, not an operationally proven system
+- The original "3–5 day early warning before a single fire" framing doesn't fully apply —
+  the 2024 fire season involved sustained fire activity over months rather than one isolated
+  ignition, so validation measures the model's ability to track season-long risk and its
+  decline, not lead time before a specific event
 - Currently validates against *historical* dates, not live/future forecasts. A natural next step
   would be using Open-Meteo's forecast API (instead of the historical archive) combined with the
   most recent available NDVI reading, to predict real upcoming risk rather than only past dates
 - No deep learning (ConvLSTM) attempted — deliberately scoped out given project timeline and no
   prior deep learning experience; documented as future work, not an oversight
+- Predicts at district level, not sub-district zones — a reasonable scope for a solo project
+  timeline; grid-level prediction (as in the original concept) is a natural next step
 
 ## Tech Stack
 
 Python · pandas · scikit-learn · XGBoost · Google Earth Engine · Flask · JavaScript
+
+## Running Locally
 
 ## Running Locally
 ```

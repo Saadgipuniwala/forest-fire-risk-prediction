@@ -58,13 +58,11 @@ and terrain data to predict fire risk for four of Uttarakhand's highest fire-ris
 Python · pandas · scikit-learn · XGBoost · Google Earth Engine · Flask · JavaScript
 
 ## Running Locally
-
-
+```
 pip install -r requirements.txt
 cd app
 python app.py
-
-
+```
 Then open `http://127.0.0.1:5000` in your browser.
 
 ## Author

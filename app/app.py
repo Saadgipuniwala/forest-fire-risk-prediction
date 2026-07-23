@@ -1,9 +1,13 @@
 from flask import Flask, render_template, jsonify
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
-df = pd.read_csv(r"C:\Users\dolly\OneDrive\Desktop\fireline-project\data\processed\dashboard_predictions.csv")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CSV_PATH = os.path.join(BASE_DIR, "data", "dashboard_predictions.csv")
+
+df = pd.read_csv(CSV_PATH)
 
 @app.route("/")
 def home():
@@ -11,7 +15,6 @@ def home():
 
 @app.route("/api/predictions")
 def get_predictions():
-    date = pd.Timestamp.today().strftime("%Y-%m-%d")
     dates_available = sorted(df["date"].unique())
     return jsonify({
         "dates_available": dates_available,
@@ -21,8 +24,4 @@ def get_predictions():
 @app.route("/api/predictions/<date>")
 def get_predictions_for_date(date):
     day_data = df[df["date"] == date]
-    result = day_data.to_dict(orient="records")
-    return jsonify(result)
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    result = day_data.to_dict(orient="rec

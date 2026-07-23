@@ -6,3 +6,4 @@ xgboost
 earthengine-api
 requests
 matplotlib
+gunicorn

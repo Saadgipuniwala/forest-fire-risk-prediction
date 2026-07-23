@@ -32,8 +32,7 @@ and terrain data to predict fire risk for four of Uttarakhand's highest fire-ris
 3. Labeled every district-day as fire / no-fire (not just fire points — a real binary classification dataset)
 4. Trained and compared two models: **Random Forest** (chosen) and XGBoost
 5. Evaluated using confusion matrix, precision/recall, ROC and PR curves
-6. **Validated against a real 2024 fire event** in Pauri Garhwal — the model showed rising
-   risk probability in the days *before* the fire, tracking a real humidity drop
+6. **Validated against the 2024 Uttarakhand fire season (April–June) across all four districts — the model maintained consistently high risk scores throughout the active season and correctly tracked the drop to low risk as conditions cooled in late June, distinguishing active-danger months from the calmer period that followed**
 7. Built a live dashboard (Flask + JavaScript) showing risk by district for any date in the test period
 
 ## Results

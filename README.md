@@ -34,7 +34,7 @@ and terrain data to predict fire risk for four of Uttarakhand's highest fire-ris
 5. Evaluated using confusion matrix, precision/recall, ROC and PR curves
 6. **Validated against the 2024 Uttarakhand fire season (April–June) across all four districts — the model maintained consistently high risk scores throughout the active season and correctly tracked the drop to low risk as conditions cooled in late June, distinguishing active-danger months from the calmer period that followed**
 7. Built a live dashboard (Flask + JavaScript) showing risk by district for any date in the test period
-
+The original "3–5 day early warning before a single fire" framing doesn't fully apply — the 2024 fire season involved sustained fire activity over months rather than one isolated ignition, so validation measures the model's ability to track season-long risk and its decline, not lead time before a specific event 
 ## Results
 
 - **93% recall** on real fires in the 2024 test season (caught 247 of 267 real fire events)

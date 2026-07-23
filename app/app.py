@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CSV_PATH = os.path.join(BASE_DIR, "data", "dashboard_predictions.csv")
+CSV_PATH = os.path.join(BASE_DIR, "data", "dashboard_predictions_v2.csv")
 
 df = pd.read_csv(CSV_PATH)
 
@@ -24,4 +24,8 @@ def get_predictions():
 @app.route("/api/predictions/<date>")
 def get_predictions_for_date(date):
     day_data = df[df["date"] == date]
-    result = day_data.to_dict(orient="rec
+    result = day_data.to_dict(orient="records")
+    return jsonify(result)
+
+if __name__ == "__main__":
+    app.run(debug=True)

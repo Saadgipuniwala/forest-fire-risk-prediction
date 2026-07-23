@@ -65,7 +65,11 @@ and terrain data to predict fire risk for four of Uttarakhand's highest fire-ris
 
 Python · pandas · scikit-learn · XGBoost · Google Earth Engine · Flask · JavaScript
 
-## Running Locally
+## Live Demo
+
+Try it here: https://forest-fire-risk-prediction.onrender.com
+
+*(Free-tier hosting — first load may take ~50 seconds if the app has been inactive.)*
 
 ## Running Locally
 ```
